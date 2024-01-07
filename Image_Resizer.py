@@ -4,7 +4,7 @@ from io import BytesIO # translates image contents to bytes
 
 # configurations
 app = Flask(__name__)
-app.secret_key = 'plwyetczfcbabuwgtyetrea'
+app.secret_key = input("input the applications secret key: ")
 
 # home page
 @app.route('/home/')
