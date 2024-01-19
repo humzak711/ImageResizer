@@ -1,10 +1,11 @@
 from flask import Flask, redirect, render_template, request, send_file,flash # backend framework
+from werkzeug.datastructures import FileStorage # for static typing for images
 from PIL import Image # for resizing and processing image
 from io import BytesIO # translates image contents to bytes 
 
 # configurations
 app = Flask(__name__)
-app.secret_key = input("input the applications secret key: ")
+app.secret_key = 'plwyetczfcbabuwgtyetrea'
 
 # home page
 @app.route('/home/')
@@ -21,11 +22,11 @@ def resize_image(width:int, height:int) -> Image:
     if request.method == 'POST':
         try:
             # get new image dimensions
-            width = int(width)
-            height = int(height)
+            width: int = int(width)
+            height: int = int(height)
 
             # get image file
-            image_file = request.files.get('image')
+            image_file: FileStorage = request.files.get('image')
             
             # handle invalid file name
             if image_file is None or not image_file.filename: 
@@ -34,10 +35,10 @@ def resize_image(width:int, height:int) -> Image:
         
             # open and resize the image file
             with Image.open(image_file) as image:
-                resized_image = image.resize((width, height))
+                resized_image: image = image.resize((width, height))
 
                 # prepare image for sending to frontend
-                buffer = BytesIO() 
+                buffer: bytearray = BytesIO() 
                 resized_image.save(buffer, format='JPEG') # save image data into a buffer
                 buffer.seek(0) # reset buffer to allow it to be read from the beginning
 
