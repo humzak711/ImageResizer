@@ -1,0 +1,38 @@
+html {
+    text-align: center;
+}
+
+header {
+    margin-top: 5%;
+}
+        
+main {
+    margin-top: 10%;
+}
+
+.configurations {
+    width: 500px;
+    margin: 30px auto;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#SubmitForm {
+    width: 90%;
+    background-color:white
+}
+
+#SubmitForm:hover {
+    background-color: aqua;
+}
+
+.Results {
+    margin-top: 5%;
+}
+
+.flashes {
+    color: red;
+    list-style-type: none;
+    font-family: 'Times New Roman', Times, serif;
+}
